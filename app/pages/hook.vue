@@ -13,4 +13,6 @@ onNuxtReady(() => {
     <h2>Hook</h2>
     <p>{{ data }}</p>
   </div>
+
+  <NuxtLink to="/">Back to home</NuxtLink>
 </template>

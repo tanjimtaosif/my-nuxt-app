@@ -64,7 +64,7 @@ function closeSidebar() {
     display: block;
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--color_overlay);
     z-index: var(--z_header);
   }
 }

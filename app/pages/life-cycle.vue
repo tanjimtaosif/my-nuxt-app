@@ -26,4 +26,5 @@ function increment() {
     <p>Count: {{ count }}</p>
     <button @click="increment">Increatment</button>
   </div>
+  <NuxtLink to="/">Back to home</NuxtLink>
 </template>

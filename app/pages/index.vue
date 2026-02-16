@@ -5,8 +5,10 @@
     <NuxtLink to="/products">Products</NuxtLink> <br />
     <NuxtLink to="/blogs">Blogs</NuxtLink> <br />
     <NuxtLink to="/list">To do list</NuxtLink> <br />
-    <NuxtLink to="reactive">Reactivity</NuxtLink>
+    <NuxtLink to="reactive">Reactivity</NuxtLink> <br />
+    <NuxtLink to="/pinia">Pinia Example</NuxtLink>
 
+    <br />
     <br />
     <NuxtLink to="/products/1">Dynamic 1</NuxtLink> <br />
     <NuxtLink to="/products/2">Dynamic 2</NuxtLink> <br />

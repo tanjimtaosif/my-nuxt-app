@@ -19,6 +19,10 @@ useHead({ title: 'Blogs' });
         The [...slug].vue file acts as a catch-all route, handling any URL path under /blogs that
         doesn't match a defined route — perfect for 404 pages within a section.
       </p>
+      <p class="concept_card__description">
+        <strong>Why use it:</strong> Nested routes let you build complex apps with sub-views while keeping code organized by feature — no router.js needed.
+        <strong>When to use:</strong> For content hierarchies like blogs with categories, settings pages with tabs, or any section with its own sub-navigation.
+      </p>
     </div>
 
     <div class="section_grid">

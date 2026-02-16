@@ -17,6 +17,10 @@ useHead({ title: 'About Products' });
         It sits alongside the dynamic [id] route and the index page, demonstrating how
         static and dynamic routes coexist in the same directory.
       </p>
+      <p class="concept_card__description">
+        <strong>Why use it:</strong> Static and dynamic routes coexisting in the same directory keeps related features grouped together logically.
+        <strong>When to use:</strong> For supplementary pages within a resource section — e.g., /products/about alongside /products/42.
+      </p>
     </div>
 
     <div class="card">

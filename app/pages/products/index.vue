@@ -19,6 +19,10 @@ useHead({ title: 'Products' });
         and this index page. Nuxt creates all these routes from the file structure automatically.
         The [id] folder creates routes like /products/1, /products/2, etc.
       </p>
+      <p class="concept_card__description">
+        <strong>Why use it:</strong> One template serves thousands of pages — no need to create a separate .vue file for each product, user, or article.
+        <strong>When to use:</strong> For any resource with unique IDs: products, user profiles, order details, or article pages.
+      </p>
     </div>
 
     <div class="section_grid">

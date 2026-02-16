@@ -20,6 +20,10 @@ useHead({ title: 'Composable Counter' });
         functions. Composables are the Vue 3 way to extract and reuse stateful logic across
         components. Nuxt auto-imports composables from the composables/ directory.
       </p>
+      <p class="concept_card__description">
+        <strong>Why use it:</strong> Write logic once, reuse it everywhere. Keeps components clean by separating UI from business logic. Replaces Vue 2 Mixins without naming collisions.
+        <strong>When to use:</strong> Whenever you repeat the same stateful logic in multiple components — e.g., form validation, data fetching patterns, or mouse tracking.
+      </p>
     </div>
 
     <div class="demo_area">

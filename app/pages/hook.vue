@@ -27,6 +27,10 @@ useHead({ title: 'Data Fetching' });
         The $fetch utility is Nuxt's built-in fetch wrapper. onNuxtReady runs a callback
         once the Nuxt app is fully hydrated on the client side.
       </p>
+      <p class="concept_card__description">
+        <strong>Why use it:</strong> Fetches data on the server during initial load, improving SEO and performance. Prevents double-fetching by automatically transferring state from server to client.
+        <strong>When to use:</strong> Use useAsyncData for page-level SEO-critical data (blog posts, product details). Use $fetch client-side for user interactions (form submissions, loading more content).
+      </p>
     </div>
 
     <div class="demo_area">

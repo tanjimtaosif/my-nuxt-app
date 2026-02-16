@@ -44,9 +44,11 @@ function increment() {
         Vue components go through a lifecycle: created, mounted, updated, unmounted.
         onMounted runs after the component is added to the DOM.
         onUpdated fires after every re-render.
-        onBeforeUnmount runs cleanup logic before the component is destroyed.
-        onUnmounted runs after the component is fully removed.
-        Click the button below and watch the console log update.
+        onBeforeUnmount and onUnmounted handle cleanup.
+      </p>
+      <p class="concept_card__description">
+        <strong>Why use it:</strong> To control exactly when code runs during a component's life, and to prevent memory leaks by cleaning up listeners and timers.
+        <strong>When to use:</strong> Use onMounted for API calls and 3rd-party library init, onUpdated for syncing with external DOM, and onBeforeUnmount for clearing intervals or removing event listeners.
       </p>
     </div>
 

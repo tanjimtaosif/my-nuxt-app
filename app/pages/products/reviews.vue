@@ -21,6 +21,10 @@ useHead({ title: 'Product Reviews' });
         bundle size. The ClientOnly wrapper ensures the component only renders on the client side,
         skipping server-side rendering — useful for browser-dependent features.
       </p>
+      <p class="concept_card__description">
+        <strong>Why use it:</strong> Reduces initial JavaScript bundle size for faster page loads. Code is downloaded only when needed.
+        <strong>When to use:</strong> For heavy components below the fold (reviews, maps, charts), components behind user interaction (modals, drawers), or browser-only features (localStorage, Web APIs).
+      </p>
     </div>
 
     <ClientOnly>

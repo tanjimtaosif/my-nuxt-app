@@ -20,6 +20,10 @@ useHead({ title: `Product #${route.params.id}` });
         The [id] folder name tells Nuxt to treat the URL segment as a dynamic parameter.
         You can access it via useRoute().params.id — currently showing id={{ route.params.id }}.
       </p>
+      <p class="concept_card__description">
+        <strong>Why use it:</strong> Dynamic parameters let you build data-driven pages without creating dozens of static files. One template handles every ID.
+        <strong>When to use:</strong> Whenever content varies by an identifier — e.g., /products/42, /users/john, /orders/ORD-123.
+      </p>
     </div>
 
     <div class="demo_area">

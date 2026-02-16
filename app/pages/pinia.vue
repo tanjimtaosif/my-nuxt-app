@@ -20,6 +20,10 @@ useHead({ title: 'Pinia Store' });
         a doubleCount getter that computes a derived value, and increment/decrement actions.
         The @pinia/nuxt module auto-imports stores from the stores/ directory.
       </p>
+      <p class="concept_card__description">
+        <strong>Why use it:</strong> Share global state between unrelated components without prop drilling. Supports DevTools time-travel debugging and state inspection.
+        <strong>When to use:</strong> For user sessions, shopping carts, theme settings, or notification systems — any state that needs to persist across page navigation.
+      </p>
     </div>
 
     <div class="pinia_demo">

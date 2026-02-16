@@ -24,6 +24,10 @@ useHead({ title: 'Admin Dashboard' });
         Nuxt allows pages to use different layouts by calling definePageMeta({ layout: "admin" }).
         This page uses the admin layout instead of the default layout, giving it a sidebar navigation.
       </p>
+      <p class="concept_card__description">
+        <strong>Why use it:</strong> Layouts let you share common UI (headers, sidebars) across pages without repeating code, and quickly switch entire page structures.
+        <strong>When to use:</strong> Use 'default' for public pages, 'admin' for authenticated dashboards with sidebars, and 'blank' for login/signup screens.
+      </p>
     </div>
 
     <div class="admin_page__stats">

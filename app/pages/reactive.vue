@@ -38,7 +38,11 @@ function addItem() {
         ref() creates a reactive primitive value. reactive() creates a reactive object.
         computed() derives a value that auto-updates when dependencies change.
         watch() observes a reactive source and runs a callback on change.
-        Try typing a name and adding items to see reactivity in action.
+      </p>
+      <p class="concept_card__description">
+        <strong>Why use it:</strong> Reactivity lets the UI update automatically when data changes — no manual DOM manipulation needed.
+        <strong>When to use:</strong> Use ref() for simple values (counts, toggles), reactive() for grouped state (forms, cart objects),
+        computed() for derived data (filtered lists), and watch() for side effects (API calls on filter change).
       </p>
     </div>
 

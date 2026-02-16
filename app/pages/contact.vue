@@ -16,6 +16,10 @@ useHead({ title: 'Contact' });
         This page exists simply because contact.vue is placed inside the pages/ directory.
         Nuxt automatically creates the /contact route — no manual router configuration needed.
       </p>
+      <p class="concept_card__description">
+        <strong>Why use it:</strong> Convention over configuration — no massive router.js file to maintain. Each page is automatically code-split for faster load times.
+        <strong>When to use:</strong> For any standalone page in your app (About, Contact, Terms). Just create the .vue file and the route exists.
+      </p>
     </div>
 
     <div class="card">

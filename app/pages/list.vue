@@ -35,6 +35,10 @@ function removeTask(index) {
         list rendering with v-for, conditional rendering with v-if/v-else,
         and event handling with @click. The :disabled binding prevents adding empty tasks.
       </p>
+      <p class="concept_card__description">
+        <strong>Why use it:</strong> Directives provide a declarative way to manipulate the DOM based on state, reducing boilerplate compared to manual event listeners.
+        <strong>When to use:</strong> Use v-for for product lists and feeds, v-if for toggling modals and expensive components, v-model for form inputs and search bars.
+      </p>
     </div>
 
     <div class="demo_area">

@@ -16,6 +16,10 @@ useHead({ title: 'Nuxt JS Blog' });
         This page is created by placing nuxt.vue inside the pages/blogs/ directory.
         Nuxt generates the route /blogs/nuxt automatically from the file structure.
       </p>
+      <p class="concept_card__description">
+        <strong>Why use it:</strong> File-based routing means zero configuration — your folder structure IS your router. Each page is automatically code-split.
+        <strong>When to use:</strong> For any page that logically belongs under a parent section, like blog posts under /blogs or settings tabs under /settings.
+      </p>
     </div>
 
     <div class="card">

@@ -1,0 +1,105 @@
+// ============================================
+// Design Tokens — CSS Custom Properties
+// ============================================
+
+:root {
+    // --- Colors (RGB format) ---
+    --color_primary: rgb(59, 130, 246);
+    --color_primary_dark: rgb(37, 99, 235);
+    --color_primary_light: rgb(219, 234, 254);
+    --color_primary_rgb: 59, 130, 246;
+
+    --color_secondary: rgb(139, 92, 246);
+    --color_secondary_light: rgb(237, 233, 254);
+    --color_secondary_lighter: rgb(196, 181, 253);
+    --color_secondary_rgb: 139, 92, 246;
+
+    --color_success: rgb(16, 185, 129);
+    --color_success_light: rgb(209, 250, 229);
+    --color_success_dark: rgb(6, 95, 70);
+
+    --color_danger: rgb(239, 68, 68);
+    --color_danger_light: rgb(254, 226, 226);
+    --color_danger_dark: rgb(220, 38, 38);
+
+    --color_warning: rgb(245, 158, 11);
+    --color_warning_light: rgb(254, 243, 199);
+    --color_warning_dark: rgb(180, 83, 9);
+
+    --color_bg: rgb(248, 250, 252);
+    --color_bg_card: rgb(255, 255, 255);
+    --color_bg_header: rgb(30, 41, 59);
+    --color_bg_footer: rgb(15, 23, 42);
+    --color_bg_admin: rgb(30, 27, 75);
+    --color_white_alpha_10: rgba(255, 255, 255, 0.1);
+    --color_white_alpha_15: rgba(255, 255, 255, 0.15);
+
+    --color_text: rgb(30, 41, 59);
+    --color_text_light: rgb(100, 116, 139);
+    --color_text_inverse: rgb(248, 250, 252);
+    --color_text_inverse_rgb: 248, 250, 252;
+    --color_text_link: var(--color_primary);
+
+    --color_border: rgb(226, 232, 240);
+    --color_border_focus: var(--color_primary);
+
+    // --- Typography ---
+    --font_family: 'Inter', system-ui, -apple-system, sans-serif;
+    --font_family_mono: 'Courier New', monospace;
+    --font_size_xs: 0.75rem;
+    --font_size_sm: 0.875rem;
+    --font_size_base: 1rem;
+    --font_size_lg: 1.125rem;
+    --font_size_xl: 1.25rem;
+    --font_size_2xl: 1.5rem;
+    --font_size_3xl: 1.875rem;
+    --font_weight_normal: 400;
+    --font_weight_medium: 500;
+    --font_weight_semibold: 600;
+    --font_weight_bold: 700;
+    --line_height_tight: 1.4;
+    --line_height_base: 1.6;
+    --line_height_relaxed: 1.7;
+    --letter_spacing_tight: -0.02em;
+    --letter_spacing_wide: 0.05em;
+
+    // --- Spacing ---
+    --space_xs: 0.25rem;
+    --space_sm: 0.5rem;
+    --space_md: 1rem;
+    --space_lg: 1.5rem;
+    --space_xl: 2rem;
+    --space_2xl: 3rem;
+    --space_3xl: 4rem;
+
+    // --- Sizing ---
+    --size_icon_sm: 1.5rem;
+    --size_icon_md: 2.5rem;
+    --size_icon_xl: 4rem;
+
+    // --- Borders ---
+    --border_radius_sm: 0.375rem;
+    --border_radius_md: 0.5rem;
+    --border_radius_lg: 0.75rem;
+    --border_radius_xl: 1rem;
+    --border_radius_full: 9999px;
+
+    // --- Shadows ---
+    --shadow_sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow_md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow_lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+    // --- Transitions ---
+    --transition_fast: 150ms ease;
+    --transition_base: 250ms ease;
+
+    // --- Layout ---
+    --max_width: 1100px;
+    --max_height_scroll: 300px;
+    --header_height: 64px;
+    --sidebar_width: 260px;
+
+    // --- Z-Index ---
+    --z_header: 100;
+    --z_overlay: 200;
+}

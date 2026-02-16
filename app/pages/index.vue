@@ -9,6 +9,7 @@
     <NuxtLink to="/pinia">Pinia Example</NuxtLink> <br />
     <NuxtLink to="/life-cycle">Life Cycle Hooks</NuxtLink> <br />
     <NuxtLink to="/hook">Hook</NuxtLink> <br />
+    <NuxtLink to="/compose">Composable Counter</NuxtLink> <br />
 
     <br />
     <br />

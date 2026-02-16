@@ -25,4 +25,5 @@ function addTask() {
       </li>
     </ul>
   </div>
+  <NuxtLink to="/">Back to home</NuxtLink>
 </template>

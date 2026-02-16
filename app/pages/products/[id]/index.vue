@@ -7,4 +7,4 @@ const route = useRoute();
         <p>You are viewing product with id : {{ route.params.id }}</p>
         <NuxtLink to="/">Go to Home</NuxtLink>
     </div>
-</template>
+</template> 

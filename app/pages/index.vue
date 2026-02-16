@@ -6,7 +6,9 @@
     <NuxtLink to="/blogs">Blogs</NuxtLink> <br />
     <NuxtLink to="/list">To do list</NuxtLink> <br />
     <NuxtLink to="reactive">Reactivity</NuxtLink> <br />
-    <NuxtLink to="/pinia">Pinia Example</NuxtLink>
+    <NuxtLink to="/pinia">Pinia Example</NuxtLink> <br />
+    <NuxtLink to="/life-cycle">Life Cycle Hooks</NuxtLink> <br />
+    <NuxtLink to="/hook">Hook</NuxtLink> <br />
 
     <br />
     <br />

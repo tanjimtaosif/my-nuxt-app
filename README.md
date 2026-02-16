@@ -46,6 +46,16 @@ Vue 3 introduced a new reactivity system based on ES6 Proxies. We explore the co
 - **`computed()`**: Derived state that automatically updates when dependencies change.
 - **`watch()`**: Side effects that run when a reactive source changes.
 
+**Why Use It:**
+- Reactivity allows your UI to automatically update when data changes, without manual DOM manipulation.
+- `computed` properties cache values, improving performance by only re-calculating when dependencies change.
+
+**When to Use:**
+- Use `ref()` for simple values like `count` or `isVisible`.
+- Use `reactive()` for grouping related state, like a `form` object (e.g., `{ name: '', email: '' }`).
+- Use `computed()` for filtering lists or formatting data (e.g., `fullName` from `firstName` + `lastName`).
+- Use `watch()` for side effects like API calls when a filter changes, or logging.
+
 **Example:**
 ```javascript
 const name = ref("Nuxt User"); // ref
@@ -63,9 +73,18 @@ Located in: `pages/life-cycle.vue`
 
 Understanding the component lifecycle is crucial for managing side effects, API calls, and DOM manipulation.
 
-- **`onMounted`**: Component is inserted into the DOM. Ideally used for API calls or third-party library initialization.
+- **`onMounted`**: Component is inserted into the DOM.
 - **`onUpdated`**: Component has re-rendered due to reactive state changes.
-- **`onBeforeUnmount`**: Cleanup logic (removing event listeners, clearing intervals) before component destruction.
+- **`onBeforeUnmount`**: Cleanup logic before component destruction.
+
+**Why Use It:**
+- To control exactly _when_ code runs during a component's existence.
+- To prevent memory leaks by cleaning up listeners or timers when a component is removed.
+
+**When to Use:**
+- **`onMounted`**: For fetching initial data, setting up WebSocket connections, or integrating 3rd-party libraries (charts, maps) that need the DOM.
+- **`onUpdated`**: For debugging re-renders or syncing with external DOM elements after an update.
+- **`onBeforeUnmount`**: For clearing intervals/timeouts or removing global event listeners.
 
 **Example:**
 ```javascript
@@ -79,7 +98,16 @@ onMounted(() => {
 ### 3. Composables (Reusable Logic)
 Located in: `pages/compose.vue`
 
-Nuxt auto-imports composables from the `composables/` directory. This pattern replaces Mixins, allowing you to extract reusable stateful logic into clean functions.
+Nuxt auto-imports composables from the `composables/` directory.
+
+**Why Use It:**
+- **Reusability**: Write logic once, use it in multiple components.
+- **Organization**: Keeps components clean by separating UI from business logic.
+- **Composition**: You can combine multiple composables together.
+
+**When to Use:**
+- When you find yourself determining "how" to do something (e.g., tracking mouse position, managing a counter, fetching specific data) in multiple places.
+- Instead of Mixins (Vue 2), which had issues with naming collisions and implicit dependencies.
 
 **Example from `composables/useCounter.js`:**
 ```javascript
@@ -99,7 +127,15 @@ Standard Vue directives for DOM manipulation and logic.
 - **`v-for`**: Render lists based on arrays.
 - **`v-if` / `v-else`**: Conditionally render elements.
 - **`v-model`**: Two-way data binding for form inputs.
-- **`@click`**: Event listener for click events.
+
+**Why Use It:**
+- Directives provide a declarative way to manipulate the DOM based on state.
+- Reduces boilerplate compared to manual event listeners and DOM updates.
+
+**When to Use:**
+- **`v-for`**: Displaying lists of items (products, posts, messages).
+- **`v-if`**: Toggling visibility of expensive components (modals, complex graphs) that shouldn't exist in the DOM when hidden.
+- **`v-model`**: Handling form inputs (search bars, login forms).
 
 ---
 
@@ -108,7 +144,15 @@ Standard Vue directives for DOM manipulation and logic.
 ### 1. Data Fetching
 Located in: `pages/hook.vue`
 
-Nuxt provides powerful composables for server-side data fetching. `useAsyncData` prevents hydration mismatches and handles SSR correctly.
+Nuxt provides `useAsyncData` and `$fetch` for data fetching.
+
+**Why Use It:**
+- **SSR Support**: Fetches data on the server during initial load, improving SEO and performance.
+- **Hydration**: Automatically transfers state from server to client, preventing "layout shift" or double-fetching.
+
+**When to Use:**
+- **`useAsyncData` / `useFetch`**: For page-level data needed for SEO (e.g., blog post content, product details).
+- **`$fetch` (client-side)**: For user interactions after the page loads (e.g., submitting a form, loading more comments).
 
 **Example:**
 ```javascript
@@ -121,7 +165,14 @@ const { data, status } = await useAsyncData('posts', () =>
 ### 2. State Management (Pinia)
 Located in: `pages/pinia.vue` | Store: `stores/counter.js`
 
-Nuxt automatically imports stores defined in `stores/`. Pinia stores are modular and type-safe.
+**Why Use It:**
+- **Global State**: Share data between completely unrelated components (e.g., Sidebar and Cart).
+- **Persistence**: Keep state alive even when navigating between pages.
+- **DevTools**: Time-travel debugging and state inspection.
+
+**When to Use:**
+- When `props` and `emit` become too messy (prop drilling).
+- For User Sessions, Shopping Carts, Theme Settings, or Notification Systems.
 
 **Store Definition:**
 ```javascript
@@ -137,22 +188,40 @@ export const useCounterStore = defineStore('counter', {
 ```
 
 ### 3. Routing System
-Nuxt uses file-system based routing, meaning your file structure dictates the URL paths.
+Nuxt uses file-system based routing.
 
-- **Basic Routes**: `pages/contact.vue` ➝ `/contact`
-- **Dynamic Routes**: `pages/products/[id]/index.vue` ➝ `/products/123`. Access params via `useRoute().params.id`.
-- **Nested Routes**: `pages/blogs/index.vue` ➝ `/blogs`. `pages/blogs/nuxt.vue` ➝ `/blogs/nuxt`.
-- **Catch-All Routes**: `pages/blogs/[...slug].vue` catches any unmatched nested path like `/blogs/category/2024/post-name` useful for 404s or dynamic content.
+**Why Use It:**
+- **Convention over Configuration**: No massive `router.js` file to maintain.
+- **Automatic Splitting**: Each page is automatically code-split for performance.
+
+**When to Use:**
+- **Dynamic Routes (`[id]`)**: For resources with IDs (Products, Users).
+- **Nested Routes**: For complex layouts with sub-views (e.g., Dashboard tabs, Blog categories).
+- **Catch-All (`[...slug]`)**: For CMS integration or 404 pages.
+
 
 ### 4. Layouts
-Defined in `layouts/` directory. Used to wrap pages with common UI like Headers/Footers.
+Defined in `layouts/` directory.
 
-- **`default.vue`**: Applied automatically to all pages unless specified otherwise.
-- **`admin.vue`**: Custom layout with a dedicated sidebar for admin pages.
-- **Usage**: `definePageMeta({ layout: 'admin' })` in page component.
+**Why Use It:**
+- To share common UI (Header/Footer) across multiple pages without repeating code.
+- To switch entire page structures easily (e.g., Public vs. Admin).
+
+**When to Use:**
+- **`default.vue`**: For your main marketing or app pages.
+- **`admin.vue`**: For authenticated dashboards that need a Sidebar instead of a Top Nav.
+- **`blank.vue`**: For login/signup pages or full-screen modals.
 
 ### 5. SEO & Meta Tags
-Nuxt provides `useHead` for managing document head tags programmatically.
+Nuxt provides `useHead`.
+
+**Why Use It:**
+- Critical for correct indexing by Google/Bing and for social sharing cards (Open Graph).
+- Enhances accessibility (lang attributes, titles).
+
+**When to Use:**
+- Use on **every page** to set a unique `<title>` and `<meta name="description">`.
+- Use for dynamic content (e.g., setting the title to the Article's headline).
 
 **Example:**
 ```javascript
@@ -167,24 +236,30 @@ useHead({
 ### 6. Lazy Loading Components
 Located in: `pages/products/reviews.vue`
 
-Nuxt supports lazy loading components to reduce initial bundle size. Use standard `defineAsyncComponent` or Nuxt's auto-import prefix `Lazy` (e.g., `<LazyReviewSection />`).
+**Why Use It:**
+- **Performance**: Reduces the initial JavaScript bundle size.
+- **Speed**: The browser downloads the component code _only_ when it's actually needed.
+
+**When to Use:**
+- For heavy components below the fold (e.g., Footer, Reviews Section, Maps).
+- For components hidden behind interaction (e.g., Modals, Drawers, Tabs).
 
 ---
 
 ## 🎨 SCSS Architecture & Design System
 
-The project uses a structured SCSS methodologies with **BEM (Block Element Modifier)** naming convention and **CSS Variables** for consistent theming.
+The project uses a structured SCSS methodologies with **BEM (Block Element Modifier)** naming convention and **CSS Variables**.
 
 ### 1. Design Tokens (`assets/scss/_variables.scss`)
-All design values (colors, spacing, typography, z-indices) are stored as CSS Custom Properties in the `:root`. This allows for easy theming and dark mode support.
+All design values (colors, spacing, typography, z-indices) are stored as CSS Custom Properties.
 
-```scss
-:root {
-  --color_primary: rgb(59, 130, 246);
-  --space_md: 1rem;
-  --font_family_mono: 'Courier New', monospace;
-}
-```
+**Why Use It:**
+- **Consistency**: Ensures the exact same "Primary Blue" or "Spacing Medium" is used everywhere.
+- **Maintainability**: Change a color in one file, and it updates across the entire app.
+- **Theming**: Enables features like Dark Mode by simply swapping variable values.
+
+**When to Use:**
+- Always use variables (`var(--color-primary)`) instead of hardcoded values (`#3b82f6`).
 
 ### 2. Base Styles (`assets/scss/_base.scss`)
 Contains global resets, typography defaults, and reusable utility classes like `.page_container`, `.card`, `.btn`, and form elements.
